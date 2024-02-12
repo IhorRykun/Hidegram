@@ -1,0 +1,123 @@
+body {
+  box-sizing: border-box;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+  min-width: 320px;
+  width: 100vw;
+  @media screen and (min-width: 420px) {
+    width: 420px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 1280px;
+  }
+}
+
+.container--grid {
+  @media screen and (max-width: 1199px) {
+    display: flex;
+    flex-direction: column;
+  }
+  @media screen and (min-width: 1200px) {
+    display: grid;
+    grid-template-columns: 300px minmax(1fr, auto);
+    grid-template-rows: 100px auto 100px;
+    grid-auto-rows: 200px;
+  }
+}
+
+.header {
+  @media screen and (max-width: 767px) {
+    display: block;
+  }
+  width: 100%;
+  background-color: green;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+
+  &__text {
+    @media screen and (max-width: 767px) {
+      padding: 0;
+      margin: 0;
+      display: block;
+    }
+    color: white;
+    text-align: center;
+  }
+}
+
+.content {
+  width: 100%;
+  min-height: 486px;
+  background-color: #9747ff;
+
+  &__list {
+    list-style: none;
+    // display: grid;
+    // grid-template-columns: repeat(2, 1fr);
+    // grid-template-rows: repeat(2, 100px);
+
+    // grid-auto-rows: 100px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    @media screen and (max-width: 767px) {
+      max-width: 160px;
+      margin-top: 20px;
+      padding: 20px;
+    }
+    width: 220px;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #ffcd29;
+
+    &:nth-child(2n) {
+      @media screen and (max-width: 767px) {
+        margin-right: 20px;
+        margin-top: 20px;
+      }
+
+      margin-left: auto;
+      margin-right: 40px;
+      margin-top: 40px;
+    }
+  }
+}
+
+.input {
+  background-color: red;
+  width: 100%;
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  color: white;
+
+  &__text {
+    text-align: center;
+  }
+}
+.aside {
+  @media screen and (max-width: 1199px) {
+    display: none;
+  }
+  flex-direction: column;
+  width: 100%;
+
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
+  &__text {
+    text-align: center;
+    margin-top: 400px;
+  }
+}
